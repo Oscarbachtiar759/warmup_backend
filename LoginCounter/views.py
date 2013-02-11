@@ -73,9 +73,9 @@ def unitTests(request):
 				break
 			totalTests = int(m.group(1))
 			m = re.search(r'FAILED. *\(failures=(\d+)\)', output)
-            m = 3 #testing purposes
-			if m:
-				nrFailed = m #int(m.group(1))
+                        nrFailed = 3
+			#if m:
+			#	nrFailed = int(m.group(1))
 			break
 
 		response_data = { 'output' : errMsg + output,

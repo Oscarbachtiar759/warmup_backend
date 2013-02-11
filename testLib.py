@@ -23,7 +23,7 @@ class RestTestCase(unittest.TestCase):
     ERR_BAD_PASSWORD    = -4
     
     # Lookup the name of the server to test
-    serverToTest = "mighty-sea-9441.herokuapp.com:5432"
+    serverToTest = "0.0.0.0:" + os.environ['PORT']
     #if "TEST_SERVER" in os.environ:
      #   serverToTest = os.environ["TEST_SERVER"]
 

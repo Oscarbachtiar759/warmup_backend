@@ -53,7 +53,9 @@ def unitTests(request):
 		nrFailed   = 0
 		while True:
 			#cmd = "python \"C:\\Users\\Oscar\\Documents\\School\\Spring 2013\\CS 169\\warmup\\backend\\unitTest.py \" >temp 2>&1"
-                        cmd = "make -C /app >temp 2>&1"
+                        thisDir = os.path.dirname(os.path.abspath(__file__))
+                        print thisDir
+                        cmd = "make -C \"/app/backend/\" >temp 2>&1"                        
                         code = os.system(cmd)
 			if code != 0:
 				errMsg = "Error running command (code="+str(code)+"): "+cmd+"\n"

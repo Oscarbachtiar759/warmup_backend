@@ -24,8 +24,8 @@ class RestTestCase(unittest.TestCase):
     
     # Lookup the name of the server to test
     serverToTest = "0.0.0.0:" + os.environ['PORT']
-    #if "TEST_SERVER" in os.environ:
-     #   serverToTest = os.environ["TEST_SERVER"]
+    if "TEST_SERVER" in os.environ:
+        serverToTest = os.environ["TEST_SERVER"]
 
     def makeRequest(self, url, method="GET", data={}):
         """

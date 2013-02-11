@@ -23,7 +23,7 @@ class RestTestCase(unittest.TestCase):
     ERR_BAD_PASSWORD    = -4
     
     # Lookup the name of the server to test
-    serverToTest = "0.0.0.0:$PORT"
+    serverToTest = "0.0.0.0:5432"
     #if "TEST_SERVER" in os.environ:
      #   serverToTest = os.environ["TEST_SERVER"]
 

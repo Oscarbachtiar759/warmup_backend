@@ -1,5 +1,6 @@
 # Django settings for backend project.
 import dj_database_url
+import os
 
 DEBUG = False
 TEMPLATE_DEBUG = DEBUG
@@ -111,7 +112,8 @@ WSGI_APPLICATION = 'backend.wsgi.application'
 
 TEMPLATE_DIRS = (
     #"/apps/backend/templates",
-    "os.path.join(os.path.abspath(os.path.curdir),'../backend/templates')",
+    os.path.join(os.path.abspath(os.path.curdir),'../backend/templates').replace('\\','/'),
+    
     #"C:/Users/Oscar/Documents/School/Spring 2013/CS 169/warmup/backend/templates",
     
     # Put strings here, like "/home/html/django_templates" or "C:/www/django/templates".

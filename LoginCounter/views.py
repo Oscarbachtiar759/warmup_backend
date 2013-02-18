@@ -15,8 +15,8 @@ from models import UsersModel
 @csrf_exempt
 def client(request):
     #t = get_template('index.html')
-    return render_to_response('client.html')
-    #return HttpResponse('index.html at ' + request.get_full_path())
+    #return render_to_response('client.html')
+    return HttpResponse(os.path.abspath(os.path.curdir).replace('\\','/'))
 
 @csrf_exempt
 def login(request):

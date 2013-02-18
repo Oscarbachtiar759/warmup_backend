@@ -16,7 +16,8 @@ from models import UsersModel
 def client(request):
     #t = get_template('index.html')
     #return render_to_response('client.html')
-    return HttpResponse(os.path.abspath(os.path.curdir).replace('\\','/'))
+    directories = [os.path.isdir(os.path.join(os.path.abspath(os.path.curdir),'../backend/templates').replace('\\','/')), os.path.isdir(os.path.join(os.path.abspath(os.path.curdir),'/backend').replace('\\','/')), os.path.isdir(os.path.join(os.path.abspath(os.path.curdir),'/templates').replace('\\','/'))
+    return HttpResponse(str(directories))
 
 @csrf_exempt
 def login(request):

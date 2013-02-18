@@ -110,7 +110,8 @@ ROOT_URLCONF = 'backend.urls'
 WSGI_APPLICATION = 'backend.wsgi.application'
 
 TEMPLATE_DIRS = (
-    "/apps/backend/templates",
+    #"/apps/backend/templates",
+    "os.path.join(os.path.abspath(os.path.curdir),'../backend/templates')"
     #"C:/Users/Oscar/Documents/School/Spring 2013/CS 169/warmup/backend/templates",
     
     # Put strings here, like "/home/html/django_templates" or "C:/www/django/templates".

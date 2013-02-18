@@ -4,10 +4,18 @@ import sys
 import tempfile
 import traceback
 import re
+from django.template.loader import get_template
+from django.template import Context
 from django.core.context_processors import csrf
 from django.views.decorators.csrf import csrf_exempt
 from django.http import HttpResponse, Http404
+from django.shortcuts import render_to_response
 from models import UsersModel
+
+@csrf_exempt
+def index(request):
+    #t = get_template('index.html')
+    return render_to_response('index.html', {})
 
 @csrf_exempt
 def login(request):

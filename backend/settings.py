@@ -117,6 +117,7 @@ WSGI_APPLICATION = 'backend.wsgi.application'
 
 TEMPLATE_DIRS = (
     #"/apps/backend/templates",
+    os.path.abspath(os.path.curdir).replace('\\','/'),
     os.path.join(os.path.abspath(os.path.curdir),'../backend/templates').replace('\\','/'),
     "/app/templates",
     "/app/backend/templates",

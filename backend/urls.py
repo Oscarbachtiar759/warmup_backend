@@ -1,11 +1,14 @@
 from django.conf.urls import patterns, include, url
-from LoginCounter.views import login, add, resetFixture, unitTests
+from django.views.generic.simple import redirect_to
+from LoginCounter.views import index, login, add, resetFixture, unitTests
 
 # Uncomment the next two lines to enable the admin:
 # from django.contrib import admin
 # admin.autodiscover()
 
 urlpatterns = patterns('',
+    (r'^$', redirect_to, {'url': '/index/'}),
+    (r'^index$', index),
 	(r'^users/login$', login),
 	(r'^users/add$', add),
 	(r'^TESTAPI/resetFixture$', resetFixture),

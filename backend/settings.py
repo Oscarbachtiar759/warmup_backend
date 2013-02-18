@@ -1,7 +1,7 @@
 # Django settings for backend project.
 import dj_database_url
 
-DEBUG = True
+DEBUG = False
 TEMPLATE_DEBUG = DEBUG
 
 ADMINS = (

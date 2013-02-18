@@ -2,7 +2,7 @@
 import dj_database_url
 import os
 
-DEBUG = False
+DEBUG = True
 TEMPLATE_DEBUG = DEBUG
 
 ADMINS = (
@@ -65,13 +65,18 @@ MEDIA_URL = ''
 # in apps' "static/" subdirectories and in STATICFILES_DIRS.
 # Example: "/home/media/media.lawrence.com/static/"
 STATIC_ROOT = ''
+#"C:\Users\Oscar\Documents\School\Spring 2013\CS 169\warmup\backend\templates"
+
+#os.path.join(os.path.abspath(os.path.curdir),'../backend/templates').replace('\\','/')
 
 # URL prefix for static files.
 # Example: "http://media.lawrence.com/static/"
-STATIC_URL = '/static/'
+STATIC_URL = '/templates'
 
 # Additional locations of static files
 STATICFILES_DIRS = (
+    os.path.join(os.path.abspath(os.path.curdir),'../backend/templates').replace('\\','/'),
+    "C:/Users/Oscar/Documents/School/Spring 2013/CS 169/warmup/backend",
     # Put strings here, like "/home/html/static" or "C:/www/django/static".
     # Always use forward slashes, even on Windows.
     # Don't forget to use absolute paths, not relative paths.
@@ -121,13 +126,22 @@ TEMPLATE_DIRS = (
     # Don't forget to use absolute paths, not relative paths.
 )
 
+TEMPLATE_CONTEXT_PROCESSORS = (
+    'django.core.context_processors.debug',
+    'django.core.context_processors.i18n',
+    'django.core.context_processors.media',
+    'django.core.context_processors.static',
+    'django.contrib.auth.context_processors.auth',
+    'django.contrib.messages.context_processors.messages',
+)
+
 INSTALLED_APPS = (
     #'django.contrib.auth',
     #'django.contrib.contenttypes',
     #'django.contrib.sessions',
     #'django.contrib.sites',
     #'django.contrib.messages',
-    #'django.contrib.staticfiles',
+    'django.contrib.staticfiles',
 	'LoginCounter',
     # Uncomment the next line to enable the admin:
     # 'django.contrib.admin',

@@ -13,14 +13,15 @@ from django.shortcuts import render_to_response
 from models import UsersModel
 
 @csrf_exempt
-def index(request):
+def client(request):
     #t = get_template('index.html')
-    return render_to_response('index.html', {})
+    return render_to_response('client.html')
+    #return HttpResponse('index.html at ' + request.get_full_path())
 
 @csrf_exempt
 def login(request):
     temp = json.loads(request.body)
-    if request.method == 'POST':
+    if request.method == 'POST' or request.method== 'GET':
 		userInput = temp['user']
 		passwordInput = temp['password']
 		response_data = {}
@@ -35,7 +36,7 @@ def login(request):
 @csrf_exempt	
 def add(request):
     temp = json.loads(request.body)
-    if request.method == 'POST':
+    if request.method == 'POST' or request.method == 'GET':
 		userInput = temp['user']
 		passwordInput = temp['password']
 		response_data = {}

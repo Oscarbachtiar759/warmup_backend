@@ -15,8 +15,7 @@ from models import UsersModel
 @csrf_exempt
 def index(request):
     #t = get_template('index.html')
-    #return render_to_response('index.html', {})
-    return HttpResponse("index.html")
+    return render_to_response('index.html', {})
 
 @csrf_exempt
 def login(request):

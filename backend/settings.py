@@ -110,7 +110,9 @@ ROOT_URLCONF = 'backend.urls'
 WSGI_APPLICATION = 'backend.wsgi.application'
 
 TEMPLATE_DIRS = (
-    "/apps/backend/templates",
+    #"/apps/backend/templates",
+    "C:/Users/Oscar/Documents/School/Spring 2013/CS 169/warmup/backend/templates",
+    
     # Put strings here, like "/home/html/django_templates" or "C:/www/django/templates".
     # Always use forward slashes, even on Windows.
     # Don't forget to use absolute paths, not relative paths.

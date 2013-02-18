@@ -7,8 +7,7 @@ from LoginCounter.views import index, login, add, resetFixture, unitTests
 # admin.autodiscover()
 
 urlpatterns = patterns('',
-    (r'^$', redirect_to, {'url': '/index/'}),
-    (r'^index$', index),
+    (r'^$', index),
 	(r'^users/login$', login),
 	(r'^users/add$', add),
 	(r'^TESTAPI/resetFixture$', resetFixture),

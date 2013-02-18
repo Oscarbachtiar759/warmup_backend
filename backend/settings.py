@@ -118,6 +118,8 @@ WSGI_APPLICATION = 'backend.wsgi.application'
 TEMPLATE_DIRS = (
     #"/apps/backend/templates",
     os.path.join(os.path.abspath(os.path.curdir),'../backend/templates').replace('\\','/'),
+    "/app/templates",
+    "/app/backend/templates",
     
     #"C:/Users/Oscar/Documents/School/Spring 2013/CS 169/warmup/backend/templates",
     

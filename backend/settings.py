@@ -60,23 +60,25 @@ MEDIA_ROOT = ''
 # Examples: "http://media.lawrence.com/media/", "http://example.com/media/"
 MEDIA_URL = ''
 
+ROOT_PATH = os.path.dirname(__file__)
+
 # Absolute path to the directory static files should be collected to.
 # Don't put anything in this directory yourself; store your static files
 # in apps' "static/" subdirectories and in STATICFILES_DIRS.
 # Example: "/home/media/media.lawrence.com/static/"
-STATIC_ROOT = ''
+STATIC_ROOT = os.path.join(ROOT_PATH, 'templates')
 #"C:\Users\Oscar\Documents\School\Spring 2013\CS 169\warmup\backend\templates"
 
 #os.path.join(os.path.abspath(os.path.curdir),'../backend/templates').replace('\\','/')
 
 # URL prefix for static files.
 # Example: "http://media.lawrence.com/static/"
-STATIC_URL = '/templates'
+STATIC_URL = '/templates/'
 
 # Additional locations of static files
 STATICFILES_DIRS = (
-    os.path.join(os.path.abspath(os.path.curdir),'../backend/templates').replace('\\','/'),
-    "C:/Users/Oscar/Documents/School/Spring 2013/CS 169/warmup/backend",
+    #os.path.join(os.path.abspath(os.path.curdir),'../backend/templates').replace('\\','/'),
+    #"C:/Users/Oscar/Documents/School/Spring 2013/CS 169/warmup/backend",
     # Put strings here, like "/home/html/static" or "C:/www/django/static".
     # Always use forward slashes, even on Windows.
     # Don't forget to use absolute paths, not relative paths.
@@ -117,7 +119,8 @@ WSGI_APPLICATION = 'backend.wsgi.application'
 
 TEMPLATE_DIRS = (
     #"/apps/backend/templates",
-    #os.path.abspath(os.path.curdir).replace('\\','/'),    #os.path.join(os.path.abspath(os.path.curdir),'../backend/templates').replace('\\','/'),
+    #os.path.abspath(os.path.curdir).replace('\\','/'),  
+    os.path.join(os.path.abspath(os.path.curdir),'../backend/templates').replace('\\','/'),
     os.path.join(os.path.abspath(os.path.curdir),'backend/templates').replace('\\','/'),
     "/app/templates",
     "/app/backend/templates",
@@ -140,10 +143,10 @@ TEMPLATE_CONTEXT_PROCESSORS = (
 
 INSTALLED_APPS = (
     #'django.contrib.auth',
-    #'django.contrib.contenttypes',
-    #'django.contrib.sessions',
-    #'django.contrib.sites',
-    #'django.contrib.messages',
+    'django.contrib.contenttypes',
+    'django.contrib.sessions',
+    'django.contrib.sites',
+    'django.contrib.messages',
     'django.contrib.staticfiles',
 	'LoginCounter',
     # Uncomment the next line to enable the admin:

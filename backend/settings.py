@@ -25,7 +25,7 @@ DATABASES = {
 
 
 
-#DATABASES['default'] = dj_database_url.config()
+DATABASES['default'] = dj_database_url.config()
     
 
 # Local time zone for this installation. Choices can be found here:
@@ -123,6 +123,7 @@ TEMPLATE_DIRS = (
     #os.path.abspath(os.path.curdir).replace('\\','/'),  
     os.path.join(os.path.abspath(os.path.curdir),'../backend/templates').replace('\\','/'),
     os.path.join(os.path.abspath(os.path.curdir),'backend/templates').replace('\\','/'),
+    os.path.join(os.path.abspath(os.path.curdir), 'templates').replace('\\', '/'),
     "/app/templates",
     "/app/backend/templates",
     

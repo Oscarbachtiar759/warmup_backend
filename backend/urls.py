@@ -16,6 +16,7 @@ urlpatterns = patterns('',
 	(r'^TESTAPI/unitTests$', unitTests),
     (r'^(?P<path>.*js)$', 'django.views.static.serve', {'document_root': os.path.join(os.path.abspath(os.path.curdir),'templates').replace('\\','/')}),
     (r'^(?P<path>.*css)$', 'django.views.static.serve', {'document_root': os.path.join(os.path.abspath(os.path.curdir),'templates').replace('\\','/')}),
+    (r'^(?P<path>.*gif)$', 'django.views.static.serve', {'document_root': os.path.join(os.path.abspath(os.path.curdir),'templates').replace('\\','/')})
     
     # Examples:
     # url(r'^$', 'backend.views.home', name='home'),

@@ -33,7 +33,6 @@
 </center>
 
 <script type="text/javascript">
-<!--
 /* Put the page into a blank state until everything finishes loading
    This is not the ideal thing to do, but better than nothing. */
 $('#login-page').hide()
@@ -102,6 +101,18 @@ $('#login-button').click(function() {
    return false;
 });
 
+function json_request(page, dict, success, failure) {
+    $.ajax({
+        type: 'POST',
+        url: page,
+        data: JSON.stringify(dict),
+        contentType: "application/json",
+        dataType: "json",
+        success: success,
+        error: failure
+    });
+}
+
 $('#add-user-button').click(function() {
    username = $('#login-username').val()
    password = $('#login-password').val()
@@ -115,7 +126,6 @@ $('#logout-button').click(function() {
 
   return false;
 });
--->
 </script>
 
 <body>

@@ -1,0 +1,26 @@
+<link href="assets/css/bootstrap.css" rel="stylesheet">
+
+.box {
+    color: blue;
+    font-weight: 50;
+    width: 300px;
+    height: 200px;
+    border: thin black solid;
+    border-radius: 15px;
+    background-color: rgb(255,255,0);
+}
+
+.message {
+    color: yellow;
+    font-weight: 100;
+    font-size: 200%;
+}
+
+body {
+    background-image:url('stars.gif');
+    color: yellow;
+    font-color: yellow;
+    font-weight: 50;
+    font-size: 200%;
+}
+

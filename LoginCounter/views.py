@@ -13,9 +13,9 @@ from django.shortcuts import render_to_response
 from models import UsersModel
 
 @csrf_exempt
-def client(request):
+def index(request):
     #t = get_template('index.html')
-    return render_to_response('client.html')
+    return render_to_response('index.html')
     #return HttpResponse('index.html at ' + request.get_full_path())
 
 @csrf_exempt

@@ -1,6 +1,6 @@
 from django.conf.urls import patterns, include, url
 from django.views.generic.simple import redirect_to
-from LoginCounter.views import client, login, add, resetFixture, unitTests
+from LoginCounter.views import index, login, add, resetFixture, unitTests
 from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 import os
 
@@ -9,7 +9,7 @@ import os
 # admin.autodiscover()
 
 urlpatterns = patterns('',
-    (r'^$', client),
+    (r'^$', index),
 	(r'^users/login$', login),
 	(r'^users/add$', add),
 	(r'^TESTAPI/resetFixture$', resetFixture),

@@ -1,0 +1,152 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+        <title>LogIn Counter</title>
+        <link rel="stylesheet" type="text/css" href="index.css">
+        <link href="assets/css/bootstrap.css" rel="stylesheet">
+        <link href="assets/css/bootstrap-responsive.css" rel="stylesheet">
+        <link href="assets/css/bootstrap-combined.min.css" rel="stylesheet">
+        <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+        <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.9.2/jquery-ui.min.js"></script>
+
+        <style type="text/css">
+            header, .header, #header{
+                color: white;
+                font-size: 200%;
+                font-weight: 100;
+                margin: 20px 20px 20px 20px;
+                line-height: 22px;
+                text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+            }
+        </style>
+    </head>
+
+<center>
+
+<div id="main" class="container" style="position: absolute; top:200px; left:150px">
+    <div id="login-page" class="container">
+    <div id="login-message" class="header"></div>
+    <center>
+        <form class="form-signin">
+            <input id="login-username" type="text" name="username" placeholder="Username"><br>
+            <input id="login-password" type="password" name="pwd" placeholder="Password"><br>
+            <input id="login-button" type="button" class="btn btn-success" value="Login">
+            <input id="add-user-button" type="button" class="btn btn-success" value="Add User">
+        </form>
+    </center>
+    </div>
+
+    <div id="welcome-page" class="container">
+    <div id="welcome-message" class="header"></div>
+    <center>
+        <form>
+            <input type="button" class="btn btn-danger" id="logout-button" value="Logout">
+        </form>
+    </center>
+    </div>
+
+</div>
+</center>
+
+<script type="text/javascript">
+
+function errorMessage(code) {
+    if( code == -1) {
+        return ("Invalid username and password combination. Please try again. ");
+    } else if( code == -3) {
+        return ("The user name should not be empty and at most 128 characters long. Please try again.");
+    } else if( code == -2) {
+        return ("This user name already exists. Please try again.");
+    } else if( code == -4) {
+        return ("The password should be at most 128 characters long. Please try again");
+    } else {
+        if( debug_flag ) { alert('Illegal error code encountered: ' + code); }
+        return ("Unknown error occured: " + code);
+   }
+}
+
+
+function loginPage(message){
+    if (! message){
+        message = "Please enter your credentials below";
+    }
+    $('#welcome-page').hide();
+    $('#login-username').val("");
+    $('#login-password').val("");
+    $('#login-message').html(message);
+    $('#login-page').show();
+}
+
+function welcomePage(user, count){
+    $('#login-page').hide();
+    $('#welcome-page').show();
+    $('#welcome-message').html("Welcome "+user+"<br><br>You have logged in <b>"+count+"</b> times.");
+}
+
+function handleResponse(data, user){
+    if (data.errCode > 0){
+        c = data.count;
+        welcomePage(user, c);
+    } else {
+        loginPage(errorMessage(data.errCode));
+    }
+}
+
+function json_request(page, dict, success, failure) {
+    $.ajax({
+        type: 'POST',
+        url: page,
+        data: JSON.stringify(dict),
+        contentType: "application/json",
+        dataType: "json",
+        success: success,
+        error: failure
+    });
+}
+
+function clickButton(type, username, password) {
+    if (type == 'login') {
+        url = "/users/login";
+    } else if (type == 'add'){
+        url = "/users/add";
+    }
+    $.ajax({
+        type: 'POST',
+        url: url,
+        data: JSON.stringify({user: username, password: password}),
+        contentType: "application/json",
+        dataType: "json",
+        success: function(data) {return handleResponse(data, username);},
+        error: function(err) { alert('error occurred on request');}
+    });
+}
+
+$('#login-button').click(function() {
+    username = $('#login-username').val();
+    password = $('#login-password').val();
+    clickButton('login', username, password);
+    return false;
+});
+
+$('#add-user-button').click(function() {
+    username = $('#login-username').val();
+    password = $('#login-password').val();
+    clickButton('add', username, password);
+    return false;
+});
+
+$('#logout-button').click(function() {
+    loginPage();
+    return false;
+});
+    
+$(document).ready(function() {
+    loginPage();
+});
+
+</script>
+
+<body>
+</body>
+</html>

@@ -2,7 +2,7 @@
 import dj_database_url
 import os
 
-DEBUG = False
+DEBUG = True
 TEMPLATE_DEBUG = DEBUG
 
 ADMINS = (
@@ -25,7 +25,7 @@ DATABASES = {
 
 
 
-DATABASES['default'] = dj_database_url.config()
+#DATABASES['default'] = dj_database_url.config()
     
 
 # Local time zone for this installation. Choices can be found here:

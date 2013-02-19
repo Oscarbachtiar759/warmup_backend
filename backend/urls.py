@@ -14,8 +14,9 @@ urlpatterns = patterns('',
 	(r'^users/add$', add),
 	(r'^TESTAPI/resetFixture$', resetFixture),
 	(r'^TESTAPI/unitTests$', unitTests),
-    (r'^(?P<path>.*js)$', 'django.views.static.serve', {'document_root':os.path.dirname(os.path.abspath(__file__)) + '/templates/'}),
-    (r'^(?P<path>.*css)$', 'django.views.static.serve', {'document_root':os.path.dirname(os.path.abspath(__file__)) + '/templates/'}),
+    #(r'^(?P<path>.*js)$', 'django.views.static.serve', {'document_root':os.path.dirname(os.path.abspath(__file__)) + '/templates/'}),
+    #(r'^(?P<path>.*css)$', 'django.views.static.serve', {'document_root':os.path.dirname(os.path.abspath(__file__)) + '/templates/'}),
+    
     # Examples:
     # url(r'^$', 'backend.views.home', name='home'),
     # url(r'^backend/', include('backend.foo.urls')),
@@ -27,4 +28,6 @@ urlpatterns = patterns('',
     # url(r'^admin/', include(admin.site.urls)),
 )
 
+urlpatterns += patterns('', (r'^(?P<path>.*js)$', 'django.views.static.serve', {'document_root':os.path.dirname(os.path.abspath(__file__)) + '/templates/'}),)
+urlpatterns += patterns('', (r'^(?P<path>.*css)$', 'django.views.static.serve', {'document_root':os.path.dirname(os.path.abspath(__file__)) + '/templates/'}),)
 #urlpatterns += staticfiles_urlpatterns()

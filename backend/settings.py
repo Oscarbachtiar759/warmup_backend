@@ -66,14 +66,15 @@ ROOT_PATH = os.path.dirname(__file__)
 # Don't put anything in this directory yourself; store your static files
 # in apps' "static/" subdirectories and in STATICFILES_DIRS.
 # Example: "/home/media/media.lawrence.com/static/"
-STATIC_ROOT = os.path.join(ROOT_PATH, 'templates')
+STATIC_ROOT = ''
+#os.path.join(ROOT_PATH, 'templates')
 #"C:\Users\Oscar\Documents\School\Spring 2013\CS 169\warmup\backend\templates"
 
 #os.path.join(os.path.abspath(os.path.curdir),'../backend/templates').replace('\\','/')
 
 # URL prefix for static files.
 # Example: "http://media.lawrence.com/static/"
-STATIC_URL = '/templates/'
+STATIC_URL = '/static/'
 
 # Additional locations of static files
 STATICFILES_DIRS = (

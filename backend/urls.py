@@ -14,8 +14,8 @@ urlpatterns = patterns('',
 	(r'^users/add$', add),
 	(r'^TESTAPI/resetFixture$', resetFixture),
 	(r'^TESTAPI/unitTests$', unitTests),
-    (r'^(?P<path>.*js)$', 'django.views.static.serve', {'document_root': os.path.join(os.path.abspath(os.path.curdir),'../backend/templates').replace('\\','/')}),
-    (r'^(?P<path>.*css)$', 'django.views.static.serve', {'document_root': os.path.join(os.path.abspath(os.path.curdir),'../backend/templates').replace('\\','/')}),
+    (r'^(?P<path>.*js)$', 'django.views.static.serve', {'document_root': os.path.join(os.path.abspath(os.path.curdir),'templates').replace('\\','/')}),
+    (r'^(?P<path>.*css)$', 'django.views.static.serve', {'document_root': os.path.join(os.path.abspath(os.path.curdir),'templates').replace('\\','/')}),
     
     # Examples:
     # url(r'^$', 'backend.views.home', name='home'),

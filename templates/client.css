@@ -12,12 +12,11 @@
 }
 
 .message {
-    color: yellow;
+    color: blue;
     font-weight: 100;
     margin: 10px 20px 10px 20px;
     border: thin black solid;
     border-radius: 15px;
-    background-color: rgd(0,0,255);
 }
 
 body {
